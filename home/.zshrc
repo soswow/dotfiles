@@ -45,13 +45,17 @@ HIST_STAMPS="mm.dd.yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man command-not-found cp coffee nom node brew bower osx themesb copyfile)
+plugins=(git colored-man command-not-found cp coffee npm node brew bower osx themesb copyfile)
 
 source $ZSH/oh-my-zsh.sh
 
+alias ll='ls -la'
+
 # User configuration
 
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
