@@ -8,8 +8,8 @@ ZSH=/Users/soswow/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="atom ~/.zshrc"
+# alias ohmyzsh="atom ~/.oh-my-zsh"
 
 # Set this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -37,7 +37,7 @@ ZSH_THEME="robbyrussell"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to the command execution time stamp shown 
+# Uncomment following line if you want to the command execution time stamp shown
 # in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm.dd.yyyy"
@@ -45,7 +45,7 @@ HIST_STAMPS="mm.dd.yyyy"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man command-not-found cp coffee npm node brew bower osx themesb copyfile)
+plugins=(git colored-man command-not-found cp coffee npm node brew bower osx copyfile postgres)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +55,9 @@ alias ll='ls -la'
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export VISUAL=atom
+#Cure for compass be not able to compile non-ascii characters
+export LANG=en_US.UTF-8
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -70,3 +73,5 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+#export RUBYOPT="-E utf-8"
