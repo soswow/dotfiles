@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=/Users/soswow/.oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,7 +58,7 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export VISUAL=atom
 #Cure for compass be not able to compile non-ascii characters
 export LANG=en_US.UTF-8
-
+alias homesick="$HOME/.homesick/repos/homeshick/homeshick.sh"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
