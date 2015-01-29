@@ -50,15 +50,22 @@ plugins=(git colored-man command-not-found cp coffee npm node brew bower osx cop
 source $ZSH/oh-my-zsh.sh
 
 alias ll='ls -la'
+alias j7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias j8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)  # default
+setjdk() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.$1)
+}
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$HOME/.gems/bin:$PATH"
+
 export VISUAL=atom
 #Cure for compass be not able to compile non-ascii characters
 export LANG=en_US.UTF-8
-alias homesick="$HOME/.homesick/repos/homeshick/homeshick.sh"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
@@ -74,4 +81,8 @@ alias homesick="$HOME/.homesick/repos/homeshick/homeshick.sh"
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=524m"
+
 #export RUBYOPT="-E utf-8"
+
+export GEM_HOME="$HOME/.gems"
