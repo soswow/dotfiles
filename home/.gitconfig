@@ -1,8 +1,8 @@
 [user]
-	name = Aleksandr Motsjonov
-	email = soswow@gmail.com
+	name = Aleksandr Sasha Motsjonov
+	email = amotsjonov@atlassian.com
 [core]
-	excludesfile = /Users/soswow/.gitignore_global
+	excludesfile = /Users/amotsjonov/.gitignore_global
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -10,3 +10,10 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/amotsjonov/.stCommitMsg
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
