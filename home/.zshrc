@@ -1,3 +1,4 @@
+source $HOME/.bash_profile
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -44,12 +45,12 @@ alias nuke-node-modules="find . -name 'node_modules' -exec rm -rf '{}' +"
 # Uncomment following line if you want to the command execution time stamp shown
 # in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm.dd.yyyy"
+HIST_STAMPS="%d/%m/%y %T"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git colored-man command-not-found cp npm node bower osx copyfile postgres)
+plugins=(git command-not-found cp npm node bower macos copyfile postgres)
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
@@ -68,7 +69,7 @@ setjdk() {
 # User configuration
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/opt/ruby/bin:$HOME/.gems/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$HOME/.gems/bin:$HOME/.cargo/bin:$PATH"
 export PATH="/Users/amotsjonov/Library/Android/sdk/platform-tools:$PATH"
 
 # export VISUAL=code
@@ -117,7 +118,7 @@ alias cors-chrome='open -a Google\ Chrome\ Canary --args --disable-web-security 
 
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$HOME/.yarn/bin:$PATH"
 
-. ~/anaconda/etc/profile.d/conda.sh
+# . ~/anaconda/etc/profile.d/conda.sh
 
 alias merge-master-in='BRANCH=`git rev-parse --abbrev-ref HEAD`; git checkout master && git pull && git checkout "$BRANCH" && git merge master;'
 
@@ -132,7 +133,7 @@ view-version() {
   npm view $1 version
 }
 alias last-branches='git for-each-ref --sort=committerdate refs/heads/'  
-alias compress-last-screencast='ffmpeg -i "`ls -1 -t ~/Documents/screenshots/*.mov | head -1`" -vcodec h264 "`ls -1 -t ~/Documents/screenshots/*.mov | head -1 | sed 's/\.mov/\.mp4'/g`"'
+alias compress-last-screencast='ffmpeg -i "`ls -1 -t ~/Screenshots/*.mov | head -1`" -vcodec h264 "`ls -1 -t ~/Screenshots/*.mov | head -1 | sed 's/\.mov/\.mp4'/g`"'
 
 remotecall(){
   echo "cd /mnt/volume2; ls -1 -t --escape | awk NR==${1-1}";
@@ -147,3 +148,8 @@ escaped-nas-item(){
 download-latest-nas(){
   rsync -r -P --progress --rsh=ssh "pi@192.168.1.113:/mnt/volume2/`escaped-nas-item $1`" ~/Downloads/;
 }
+
+alias pull-master='git checkout master && git pull'
+alias new-master-branch="git fetch && git checkout origin/master && git checkout -b $1"
+alias new-develop-branch="git fetch && git checkout origin/develop && git checkout -b $1"
+alias git-checkout="git checkout $1"
